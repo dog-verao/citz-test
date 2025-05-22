@@ -14,6 +14,7 @@ import {
   useTheme,
   useMediaQuery,
   Avatar,
+  Stack
 } from '@mui/material';
 import { keyframes } from '@mui/system';
 import { questions } from './questions';
@@ -108,22 +109,36 @@ function App() {
       sx={{
         width: '100%',
         bgcolor: palette.background,
-        px: isMobile ? 1 : 4,
+        px: isMobile ? 1 : 2,
         py: 2,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         borderBottom: `2px solid ${palette.accent}`,
         mb: 3,
+        overflowX: 'hidden',
+        boxSizing: 'border-box',
+        maxWidth: '100vw',
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <Avatar
-          sx={{ bgcolor: palette.accent, width: 36, height: 36 }}
-          src="/canada-leaf.png"
+          sx={{
+            bgcolor: palette.accent,
+            width: 36,
+            height: 36,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: 24,
+            fontWeight: 700,
+            p: 0,
+          }}
           alt="Canada Leaf"
         >
-          🍁
+          <Box sx={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
+            🍁
+          </Box>
         </Avatar>
         <Typography
           variant="h6"
@@ -137,20 +152,18 @@ function App() {
           Citizenship Quiz
         </Typography>
       </Box>
-      <Box
+      <Typography
+        variant="subtitle1"
         sx={{
-          bgcolor: palette.dark,
-          color: '#fff',
-          px: 2.5,
-          py: 0.7,
-          borderRadius: 3,
+          color: palette.dark,
           fontWeight: 700,
           fontSize: isMobile ? '1rem' : '1.1rem',
-          boxShadow: '0 2px 8px rgba(82,28,13,0.08)',
+          ml: 2,
+          whiteSpace: 'nowrap',
         }}
       >
-        Score: {score}/{questionsToShow.length}
-      </Box>
+        Score: {score}
+      </Typography>
     </Box>
   );
 
@@ -215,7 +228,25 @@ function App() {
     <Box sx={{ minHeight: '100vh', bgcolor: palette.background }}>
       <Header />
       <Container maxWidth="sm" sx={{ pb: 6 }}>
-        <Box sx={{ mb: 2, display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: 2 }}>
+        <Stack
+          sx={{
+            mb: 2,
+            display: 'flex',
+            gap: 2,
+          }}
+          direction="column" alignItems="center" justifyContent="center">
+          <CircularProgress
+            variant="determinate"
+            value={progress}
+            sx={{
+              width: '100%',
+              mb: 2,
+              color: palette.accent,
+              background: '#fff',
+              height: 10,
+              borderRadius: 5,
+            }}
+          />
           <Typography
             variant="subtitle2"
             sx={{
@@ -223,24 +254,12 @@ function App() {
               fontWeight: 700,
               letterSpacing: 1,
               textTransform: 'uppercase',
-              fontSize: isMobile ? '0.95rem' : '1.1rem',
+              fontSize: '1.1rem',
             }}
           >
             Question {currentQuestionIndex + 1} of {questionsToShow.length}
           </Typography>
-        </Box>
-        <CircularProgress
-          variant="determinate"
-          value={progress}
-          sx={{
-            width: '100%',
-            mb: 2,
-            color: palette.accent,
-            background: '#fff',
-            height: 10,
-            borderRadius: 5,
-          }}
-        />
+        </Stack>
         <Paper
           elevation={3}
           sx={{
