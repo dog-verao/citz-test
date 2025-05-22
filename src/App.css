@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&display=swap');
+
+body {
+  font-family: 'Ancizar Sans', Arial, sans-serif;
+  background: #F4E7E1;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: 'Ancizar Sans', Arial, sans-serif !important;
+}
+
 .App {
   text-align: center;
 }
@@ -32,6 +45,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
