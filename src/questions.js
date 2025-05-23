@@ -1,17 +1,5 @@
 export const questions = [
   {
-    "question": "What is the only official study guide for the Canadian citizenship test?",
-    "alternatives": [
-      "Citizenship Handbook",
-      "Discover Canada: The Rights and Responsibilities of Citizenship",
-      "Canadian Living Guide",
-      "A History of Canada"
-    ],
-    "correct_answer": "b",
-    "chapter": "Message to Our Readers",
-    "explanation": "According to the source, the only official study guide for the citizenship test is 'Discover Canada: The Rights and Responsibilities of Citizenship', available from Citizenship and Immigration Canada at no cost."
-  },
-  {
     "question": "Immigrants between which ages must have adequate knowledge of English or French to become Canadian citizens?",
     "alternatives": [
       "16 and 64",
@@ -34,18 +22,6 @@ export const questions = [
     "correct_answer": "b",
     "chapter": "Applying for Citizenship",
     "explanation": "The source lists that you must learn about voting procedures, Canada’s history, symbols, democratic institutions, geography, and the rights and responsibilities of citizenship."
-  },
-  {
-    "question": "What is the primary resource you should use if you are preparing for the citizenship test?",
-    "alternatives": [
-      "Third-party study guides",
-      "Online forums and websites",
-      "The official study guide 'Discover Canada'",
-      "Citizenship classes offered by local organizations"
-    ],
-    "correct_answer": "c",
-    "chapter": "Message to Our Readers",
-    "explanation": "The source advises that if you have applied for citizenship and are preparing for the test, your primary resource should be the official study guide."
   },
   {
     "question": "In Canada, to whom do we profess our loyalty?",
@@ -108,66 +84,6 @@ export const questions = [
     "explanation": "Canadian citizens have responsibilities, including that they must obey Canada’s laws and respect the rights and freedoms of others."
   },
   {
-    "question": "What happens after you pass the citizenship test and meet all other requirements?",
-    "alternatives": [
-      "You automatically become a citizen",
-      "You receive a Canadian Citizenship Certificate in the mail",
-      "You receive a Notice to Appear to Take the Oath of Citizenship",
-      "You have a final interview"
-    ],
-    "correct_answer": "c",
-    "chapter": "Applying for Citizenship",
-    "explanation": "If you pass the test and meet all the other requirements, you will receive a Notice to Appear to Take the Oath of Citizenship."
-  },
-  {
-    "question": "What are the steps involved in a citizenship ceremony?",
-    "alternatives": [
-      "Pass the test, sign the form, receive certificate",
-      "Take the Oath, sign the form, receive certificate",
-      "Answer questions, take the Oath, sing the anthem",
-      "Present documents, sign the form, receive certificate"
-    ],
-    "correct_answer": "b",
-    "chapter": "Applying for Citizenship",
-    "explanation": "At the citizenship ceremony, you will take the Oath of Citizenship, sign the oath form, and receive your Canadian Citizenship Certificate."
-  },
-  {
-    "question": "What are two basic requirements for Canadian citizenship tested?",
-    "alternatives": [
-      "Knowledge of Canadian history and symbols, and physical fitness",
-      "Knowledge of Canada and of the rights and responsibilities of citizenship, and adequate knowledge of English or French",
-      "Knowledge of Canadian geography and economy, and volunteer experience",
-      "Knowledge of the justice system and participation in elections"
-    ],
-    "correct_answer": "b",
-    "chapter": "Applying for Citizenship",
-    "explanation": "The citizenship test will test you on two basic requirements: 1) knowledge of Canada and of the rights and responsibilities of citizenship, and 2) adequate knowledge of English or French."
-  },
-  {
-    "question": "Who does not need to write the citizenship test?",
-    "alternatives": [
-      "Adult applicants 55 years of age and over",
-      "Adult applicants under 18 years of age",
-      "All applicants must write the test",
-      "Applicants who have lived in Canada for over 20 years"
-    ],
-    "correct_answer": "a",
-    "chapter": "Applying for Citizenship",
-    "explanation": "Adult applicants 55 years of age and over do not need to write the citizenship test."
-  },
-  {
-    "question": "Where are the questions for the citizenship test based?",
-    "alternatives": [
-      "Current events",
-      "The Citizenship Regulations and this study guide",
-      "General knowledge about Canada",
-      "Information from the Citizenship and Immigration Canada website"
-    ],
-    "correct_answer": "b",
-    "chapter": "Applying for Citizenship",
-    "explanation": "All the citizenship test questions are based on the subject areas noted in the Citizenship Regulations, and all required information is provided in this study guide."
-  },
-  {
     "question": "What does the Canadian Charter of Rights and Freedoms begin with?",
     "alternatives": [
       "We the people of Canada...",
@@ -214,54 +130,6 @@ export const questions = [
     "correct_answer": "b",
     "chapter": "Rights and Responsibilities of Citizenship",
     "explanation": "Mobility Rights mean Canadians can live and work anywhere they choose in Canada, enter and leave the country freely, and apply for a passport."
-  },
-  {
-    "question": "What is a key responsibility associated with the right to vote in elections?",
-    "alternatives": [
-      "Campaigning for a candidate",
-      "Running for office",
-      "Volunteering at a polling station",
-      "Voting in federal, provincial or territorial and local elections"
-    ],
-    "correct_answer": "d",
-    "chapter": "Rights and Responsibilities of Citizenship",
-    "explanation": "The right to vote comes with a responsibility to vote in federal, provincial or territorial and local elections."
-  },
-  {
-    "question": "Serving on a jury when called is described as what kind of requirement and privilege?",
-    "alternatives": [
-      "Voluntary and helpful",
-      "Optional and a civic duty",
-      "Legally required and a privilege",
-      "Recommended and an honour"
-    ],
-    "correct_answer": "c",
-    "chapter": "Rights and Responsibilities of Citizenship",
-    "explanation": "When called to do so, you are legally required to serve on a jury, and it is described as a privilege that makes the justice system work."
-  },
-  {
-    "question": "Helping others in the community through volunteering is described as an excellent way to do what?",
-    "alternatives": [
-      "Earn income",
-      "Meet politicians",
-      "Gain useful skills and develop friends and contacts",
-      "Influence government policy"
-    ],
-    "correct_answer": "c",
-    "chapter": "Rights and Responsibilities of Citizenship",
-    "explanation": "Volunteering is described as an excellent way to gain useful skills and develop friends and contacts."
-  },
-  {
-    "question": "Protecting and enjoying our heritage and environment is a role for whom?",
-    "alternatives": [
-      "Government agencies only",
-      "Environmental organizations",
-      "Every citizen",
-      "Parks Canada staff"
-    ],
-    "correct_answer": "c",
-    "chapter": "Rights and Responsibilities of Citizenship",
-    "explanation": "Every citizen has a role to play in avoiding waste and pollution while protecting Canada’s natural, cultural and architectural heritage."
   },
   {
     "question": "What are the main sources of Canadian law?",
@@ -528,18 +396,6 @@ export const questions = [
     "explanation": "In Canada’s parliamentary democracy, the people elect members to the House of Commons in Ottawa and to the provincial and territorial legislatures."
   },
   {
-    "question": "What age must Canadian citizens be to participate in democracy by voting in federal, provincial or territorial and municipal elections?",
-    "alternatives": [
-      "16 or more",
-      "18 or more",
-      "21 or more",
-      "Any age with parental permission"
-    ],
-    "correct_answer": "b",
-    "chapter": "How Canadians Govern Themselves",
-    "explanation": "It is important for Canadians aged 18 or more to participate in their democracy by voting in federal, provincial or territorial and municipal elections."
-  },
-  {
     "question": "As a constitutional monarchy, who is Canada's Head of State?",
     "alternatives": [
       "The Prime Minister",
@@ -610,42 +466,6 @@ export const questions = [
     "correct_answer": "b",
     "chapter": "The Justice System",
     "explanation": "Due process is the principle that the government must respect all the legal rights a person is entitled to under the law."
-  },
-  {
-    "question": "In Canada, does the law apply to everyone, including judges, politicians, and the police?",
-    "alternatives": [
-      "No, judges and politicians are exempt",
-      "Yes, the law applies to everyone",
-      "Only in criminal matters",
-      "Only elected officials"
-    ],
-    "correct_answer": "b",
-    "chapter": "The Justice System",
-    "explanation": "The law in Canada applies to everyone, including judges, politicians and the police."
-  },
-  {
-    "question": "What is symbolized by the blindfolded Lady Justice holding scales?",
-    "alternatives": [
-      "The cost of justice",
-      "The power of the courts",
-      "The impartial manner in which our laws are administered: blind to all considerations but the facts",
-      "The complexity of the legal system"
-    ],
-    "correct_answer": "c",
-    "chapter": "The Justice System",
-    "explanation": "The blindfolded Lady Justice symbolizes the impartial manner in which our laws are administered: blind to all considerations but the facts."
-  },
-  {
-    "question": "Are you allowed to question the police about their service or conduct in Canada?",
-    "alternatives": [
-      "No, it is illegal to question the police",
-      "Yes, you can question the police about their service or conduct",
-      "Only if you have a lawyer present",
-      "Only if you are filing a formal complaint"
-    ],
-    "correct_answer": "b",
-    "chapter": "The Justice System",
-    "explanation": "You can also question the police about their service or conduct if you feel you need to. Almost all police forces in Canada have a process for this."
   },
   {
     "question": "What is Canada's national symbol that was adopted centuries ago by the Hudson's Bay Company and later became an emblem of French-Canadian patriotic associations?",
