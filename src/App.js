@@ -1,120 +1,49 @@
 import React, { useState } from 'react';
-import {
-  Container,
-  Box,
-  Typography,
-  Radio,
-  RadioGroup,
-  FormControlLabel,
-  Button,
-  Paper,
-  CircularProgress,
-  Alert,
-  Snackbar,
-  useTheme,
-  useMediaQuery,
-  Avatar,
-  Stack
-} from '@mui/material';
-import { keyframes } from '@mui/system';
-import { questions } from './questions';
-
-// Animations
-const correctAnswer = keyframes`
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-`;
-
-const wrongAnswer = keyframes`
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-10px); }
-  50% { transform: translateX(10px); }
-  75% { transform: translateX(-10px); }
-  100% { transform: translateX(0); }
-`;
+import { questions as allQuestions } from './questions';
+import StartScreen from './components/StartScreen';
+import Quiz from './components/Quiz';
+import QuizResult from './components/QuizResult';
+import { Box, Typography, Avatar } from '@mui/material';
 
 const palette = {
-  background: '#F4E7E1',
-  accent: '#FF9B45',
-  highlight: '#D5451B',
-  dark: '#521C0D',
+  primary: '#dc2626',
+  primaryDark: '#b91c1c',
+  primaryLight: '#ef4444',
+  background: 'linear-gradient(135deg, #fef2f2 0%, #ffffff 100%)',
+  card: '#ffffff',
+  text: '#111827',
+  textSecondary: '#374151',
+  border: '#e5e7eb',
+  redShadow: 'rgba(220,38,38,0.15)',
 };
 
+function shuffle(array) {
+  const arr = array.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 function App() {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState('');
-  const [score, setScore] = useState(0);
-  const [showAnimation, setShowAnimation] = useState(false);
-  const [animationType, setAnimationType] = useState('');
-  const [showResults, setShowResults] = useState(false);
-  const [wrongQuestions, setWrongQuestions] = useState([]);
-  const [showOnlyWrong, setShowOnlyWrong] = useState(false);
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState('');
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [screen, setScreen] = useState('start'); // start | quiz | result
+  const [quizQuestions, setQuizQuestions] = useState([]);
+  const [lastResult, setLastResult] = useState(null); // {score, wrongQuestions}
+  const [wrongOnly, setWrongOnly] = useState(false);
 
-  const getQuestionsToShow = () => {
-    if (showOnlyWrong) {
-      return wrongQuestions.map(index => questions[index]);
-    }
-    return questions;
-  };
-  const questionsToShow = getQuestionsToShow();
-  const currentQuestion = questionsToShow[currentQuestionIndex];
-  const progress = (currentQuestionIndex / questionsToShow.length) * 100;
-
-  const handleAnswerSelect = (event) => {
-    setSelectedAnswer(event.target.value);
-  };
-
-  const handleConfirm = () => {
-    if (!selectedAnswer) {
-      setSnackbarMessage('Please select an answer');
-      setOpenSnackbar(true);
-      return;
-    }
-    const isCorrect = selectedAnswer === currentQuestion.correct_answer;
-    setAnimationType(isCorrect ? 'correct' : 'wrong');
-    setShowAnimation(true);
-    if (isCorrect) {
-      setScore(score + 1);
-    } else {
-      setWrongQuestions([...wrongQuestions, questions.indexOf(currentQuestion)]);
-    }
-    setTimeout(() => {
-      setShowAnimation(false);
-      if (currentQuestionIndex < questionsToShow.length - 1) {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setSelectedAnswer('');
-      } else {
-        setShowResults(true);
-      }
-    }, 700);
-  };
-
-  const handleRestart = (onlyWrong = false) => {
-    setShowOnlyWrong(onlyWrong);
-    setCurrentQuestionIndex(0);
-    setScore(0);
-    setWrongQuestions([]);
-    setShowResults(false);
-    setSelectedAnswer('');
-  };
-
-  // HEADER
+  // Header
   const Header = () => (
     <Box
       sx={{
         width: '100%',
         bgcolor: palette.background,
-        px: isMobile ? 1 : 2,
+        px: 2,
         py: 2,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        borderBottom: `2px solid ${palette.accent}`,
+        borderBottom: `2px solid ${palette.primary}`,
         mb: 3,
         overflowX: 'hidden',
         boxSizing: 'border-box',
@@ -124,7 +53,7 @@ function App() {
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <Avatar
           sx={{
-            bgcolor: palette.accent,
+            bgcolor: palette.primary,
             width: 36,
             height: 36,
             display: 'flex',
@@ -143,222 +72,77 @@ function App() {
         <Typography
           variant="h6"
           sx={{
-            color: palette.highlight,
+            color: palette.primaryDark,
             fontWeight: 800,
             letterSpacing: 1,
-            fontSize: isMobile ? '1.1rem' : '1.4rem',
+            fontSize: '1.4rem',
           }}
         >
           Citizenship Quiz
         </Typography>
       </Box>
-      <Typography
-        variant="subtitle1"
-        sx={{
-          color: palette.dark,
-          fontWeight: 700,
-          fontSize: isMobile ? '1rem' : '1.1rem',
-          ml: 2,
-          whiteSpace: 'nowrap',
-        }}
-      >
-        Score: {score}
-      </Typography>
     </Box>
   );
 
-  // RESULTS
-  if (showResults) {
+  // Start screen
+  if (screen === 'start') {
     return (
-      <Box sx={{ minHeight: '100vh', bgcolor: palette.background }}>
+      <>
         <Header />
-        <Container maxWidth="sm" sx={{ mt: 4 }}>
-          <Paper elevation={3} sx={{ p: 4, textAlign: 'center', borderRadius: 4, bgcolor: '#fff' }}>
-            <Typography variant="h4" gutterBottom sx={{ color: palette.highlight, fontWeight: 800 }}>
-              Quiz Complete!
-            </Typography>
-            <Typography variant="h5" gutterBottom sx={{ color: palette.dark, fontWeight: 700 }}>
-              Score: {score} out of {questionsToShow.length}
-            </Typography>
-            <Typography variant="h6" gutterBottom sx={{ color: palette.accent, fontWeight: 600 }}>
-              Percentage: {((score / questionsToShow.length) * 100).toFixed(1)}%
-            </Typography>
-            <Box sx={{ mt: 3, display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Button
-                variant="contained"
-                sx={{
-                  bgcolor: palette.highlight,
-                  color: '#fff',
-                  fontWeight: 700,
-                  fontSize: '1.1rem',
-                  borderRadius: 3,
-                  '&:hover': { bgcolor: palette.dark },
-                }}
-                onClick={() => handleRestart(false)}
-                fullWidth
-              >
-                Try All Questions Again
-              </Button>
-              {wrongQuestions.length > 0 && (
-                <Button
-                  variant="contained"
-                  sx={{
-                    bgcolor: palette.accent,
-                    color: palette.dark,
-                    fontWeight: 700,
-                    fontSize: '1.1rem',
-                    borderRadius: 3,
-                    '&:hover': { bgcolor: palette.highlight, color: '#fff' },
-                  }}
-                  onClick={() => handleRestart(true)}
-                  fullWidth
-                >
-                  Review Wrong Answers
-                </Button>
-              )}
-            </Box>
-          </Paper>
-        </Container>
-      </Box>
+        <StartScreen
+          onSelectQuestions={num => {
+            setQuizQuestions(shuffle(allQuestions).slice(0, num));
+            setScreen('quiz');
+            setWrongOnly(false);
+          }}
+        />
+      </>
     );
   }
 
-  // MAIN QUIZ
-  return (
-    <Box sx={{ minHeight: '100vh', bgcolor: palette.background }}>
-      <Header />
-      <Container maxWidth="sm" sx={{ pb: 6 }}>
-        <Stack
-          sx={{
-            mb: 2,
-            display: 'flex',
-            gap: 2,
+  // Quiz screen
+  if (screen === 'quiz') {
+    return (
+      <>
+        <Header />
+        <Quiz
+          questions={quizQuestions}
+          onComplete={({ score, wrongQuestions }) => {
+            setLastResult({ score, wrongQuestions });
+            setScreen('result');
           }}
-          direction="column" alignItems="center" justifyContent="center">
-          <CircularProgress
-            variant="determinate"
-            value={progress}
-            sx={{
-              width: '100%',
-              mb: 2,
-              color: palette.accent,
-              background: '#fff',
-              height: 10,
-              borderRadius: 5,
-            }}
-          />
-          <Typography
-            variant="subtitle2"
-            sx={{
-              color: palette.highlight,
-              fontWeight: 700,
-              letterSpacing: 1,
-              textTransform: 'uppercase',
-              fontSize: '1.1rem',
-            }}
-          >
-            Question {currentQuestionIndex + 1} of {questionsToShow.length}
-          </Typography>
-        </Stack>
-        <Paper
-          elevation={3}
-          sx={{
-            p: isMobile ? 2 : 4,
-            borderRadius: 4,
-            bgcolor: '#fff',
-            animation: showAnimation
-              ? `${animationType === 'correct' ? correctAnswer : wrongAnswer} 0.5s ease-in-out`
-              : 'none',
-            mb: 3,
+        />
+      </>
+    );
+  }
+
+  // Result screen
+  if (screen === 'result') {
+    return (
+      <>
+        <Header />
+        <QuizResult
+          score={lastResult.score}
+          total={quizQuestions.length}
+          wrongQuestionsCount={lastResult.wrongQuestions.length}
+          onRetryWrong={() => {
+            const wrongQs = lastResult.wrongQuestions.map(idx => quizQuestions[idx]);
+            setQuizQuestions(wrongQs);
+            setScreen('quiz');
+            setWrongOnly(true);
           }}
-        >
-          <Typography variant="h6" gutterBottom sx={{ color: palette.dark, fontWeight: 700, fontSize: isMobile ? '1.1rem' : '1.3rem' }}>
-            {currentQuestion.question}
-          </Typography>
-          <RadioGroup value={selectedAnswer} onChange={handleAnswerSelect}>
-            {currentQuestion.alternatives.map((alternative, index) => {
-              const letter = String.fromCharCode(65 + index);
-              const value = String.fromCharCode(97 + index);
-              const isSelected = selectedAnswer === value;
-              return (
-                <Box
-                  key={index}
-                  sx={{
-                    mb: 2,
-                    borderRadius: 3,
-                    bgcolor: isSelected ? palette.background : '#fff',
-                    border: isSelected ? `2px solid ${palette.highlight}` : `2px solid #eee`,
-                    transition: 'all 0.2s',
-                    boxShadow: isSelected ? `0 2px 8px ${palette.accent}22` : 'none',
-                  }}
-                >
-                  <FormControlLabel
-                    value={value}
-                    control={<Radio sx={{ color: palette.accent, '&.Mui-checked': { color: palette.highlight } }} />}
-                    label={
-                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                        <Box
-                          sx={{
-                            width: 32,
-                            height: 32,
-                            bgcolor: isSelected ? palette.highlight : palette.background,
-                            color: isSelected ? '#fff' : palette.dark,
-                            borderRadius: '50%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontWeight: 700,
-                            fontSize: '1.1rem',
-                            border: isSelected ? `2px solid ${palette.highlight}` : `2px solid ${palette.background}`,
-                            transition: 'all 0.2s',
-                          }}
-                        >
-                          {letter}
-                        </Box>
-                        <Typography sx={{ color: palette.dark, fontWeight: 500, fontSize: isMobile ? '1rem' : '1.08rem' }}>
-                          {alternative}
-                        </Typography>
-                      </Box>
-                    }
-                    sx={{ width: '100%', m: 0, p: 0, pl: 1 }}
-                  />
-                </Box>
-              );
-            })}
-          </RadioGroup>
-        </Paper>
-        <Button
-          variant="contained"
-          onClick={handleConfirm}
-          disabled={!selectedAnswer}
-          fullWidth
-          sx={{
-            bgcolor: palette.highlight,
-            color: '#fff',
-            fontWeight: 700,
-            fontSize: '1.15rem',
-            borderRadius: 3,
-            py: 1.5,
-            letterSpacing: 1,
-            mt: 2,
-            boxShadow: '0 2px 12px #D5451B22',
-            '&:hover': { bgcolor: palette.dark },
+          onRestart={() => {
+            setScreen('start');
+            setQuizQuestions([]);
+            setLastResult(null);
+            setWrongOnly(false);
           }}
-        >
-          CONFIRM ANSWER
-        </Button>
-        <Snackbar
-          open={openSnackbar}
-          autoHideDuration={3000}
-          onClose={() => setOpenSnackbar(false)}
-        >
-          <Alert severity="warning" onClose={() => setOpenSnackbar(false)}>
-            {snackbarMessage}
-          </Alert>
-        </Snackbar>
-      </Container>
-    </Box>
-  );
+        />
+      </>
+    );
+  }
+
+  return null;
 }
 
 export default App;
