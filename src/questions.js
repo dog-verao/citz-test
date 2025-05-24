@@ -1414,5 +1414,317 @@ export const questions = [
     "correct_answer": "b",
     "chapter": "Canada's Regions",
     "explanation": "Canada has a population of about 34 million people."
+  },
+  {
+    "question": "Immigrants between which ages must have adequate knowledge of English or French and pass the citizenship test in order to become Canadian citizens?",
+    "alternatives": [
+      "16 and 64",
+      "18 and 54",
+      "20 and 50",
+      "All immigrants regardless of age"
+    ],
+    "correct_answer": "b",
+    "chapter": "Applying for Citizenship / Welcome! / Canadian Symbols",
+    "explanation": "The source states, \"Immigrants between the ages of 18 and 54 must have adequate knowledge of English or French in order to become Canadian citizens.\" [1, 2]. It also notes that adult applicants 55 years of age and over do not need to write the citizenship test [3, 4]."
+  },
+  {
+    "question": "Who were the three founding peoples of Canada?",
+    "alternatives": [
+      "French, Scottish, and Irish",
+      "English, French, and Indigenous",
+      "Aboriginal, French, and British",
+      "Métis, Inuit, and First Nations"
+    ],
+    "correct_answer": "c",
+    "chapter": "Who We Are",
+    "explanation": "The source states, \"To understand what it means to be Canadian, it is important to know about our three founding peoples—Aboriginal, french and british.\" [5, 6]."
+  },
+  {
+    "question": "Who was the first Prime Minister of the Dominion of Canada?",
+    "alternatives": [
+      "Sir George-Étienne Cartier",
+      "Sir Wilfrid Laurier",
+      "Sir John A. Macdonald",
+      "Sir Louis-Hippolyte La Fontaine"
+    ],
+    "correct_answer": "c",
+    "chapter": "Canada's History",
+    "explanation": "The source identifies him as, \"Sir John A. Macdonald, the first Prime Minister of the Dominion of Canada\" [7, 8]."
+  },
+  {
+    "question": "What role did Sir Louis-Hippolyte La Fontaine first hold that was similar to a prime minister?",
+    "alternatives": [
+      "First Lieutenant Governor of Upper Canada",
+      "Leader of the Red River uprising",
+      "First head of a responsible government in Canada",
+      "Architect of the Quebec Act"
+    ],
+    "correct_answer": "c",
+    "chapter": "Canada's History",
+    "explanation": "The source states that Sir Louis-Hippolyte La Fontaine \"became the first head of a responsible government (similar to a prime minister) in Canada in 1849\" [7, 8]."
+  },
+  {
+    "question": "What is Laura Secord recognized for?",
+    "alternatives": [
+      "Leading a rebellion in Toronto",
+      "Discovering insulin",
+      "Establishing the first representative assembly",
+      "Making a dangerous journey to warn of a planned American attack"
+    ],
+    "correct_answer": "d",
+    "chapter": "Canada's History",
+    "explanation": "The source states that in 1813, Laura Secord, \"made a dangerous 19-mile (30-km) journey on foot to warn Lieutenant James FitzGibbon of a planned American attack.\" [9]."
+  },
+  {
+    "question": "Who was the first French-Canadian prime minister since Confederation?",
+    "alternatives": [
+      "Sir George-Étienne Cartier",
+      "Sir Wilfrid Laurier",
+      "Sir John A. Macdonald",
+      "Louis Riel"
+    ],
+    "correct_answer": "b",
+    "chapter": "Canada's History",
+    "explanation": "The source states, \"Sir Wilfrid Laurier became the first French-Canadian prime minister since Confederation\" [10, 11]."
+  },
+  {
+    "question": "Who discovered insulin?",
+    "alternatives": [
+      "Sir William Logan and Pierre de Monts",
+      "John Cabot and Jacques Cartier",
+      "Sir Frederick Banting and Charles Best",
+      "General Sir Arthur Currie and Lord Durham"
+    ],
+    "correct_answer": "c",
+    "chapter": "Study Questions / Photo Credits",
+    "explanation": "The study questions list asks about \"the significance of the discovery of insulin by Sir Frederick Banting and Charles Best\" [12, 13]. A photo credit also identifies Sir Frederick Banting [14, 15]."
+  },
+  {
+    "question": "Who is Canada's Head of State?",
+    "alternatives": [
+      "The Prime Minister",
+      "The Governor General",
+      "The Speaker of the House of Commons",
+      "The Sovereign (Queen or King)"
+    ],
+    "correct_answer": "d",
+    "chapter": "How Canadians Govern Themselves",
+    "explanation": "The source states, \"As a constitutional monarchy, Canada’s head of State is a hereditary Sovereign (Queen or King)\" [16, 17]."
+  },
+  {
+    "question": "Who represents the Sovereign in Canada?",
+    "alternatives": [
+      "The Prime Minister",
+      "The Governor General",
+      "The Chief Justice of Canada",
+      "The Speaker of the Senate"
+    ],
+    "correct_answer": "b",
+    "chapter": "How Canadians Govern Themselves",
+    "explanation": "The source states that Senators are appointed by the Governor General on the advice of the Prime Minister [18, 19] and that royal assent is \"granted by the Governor General on behalf [of the Sovereign]\" [18, 19]. It also lists \"The name of the representative of the Queen of Canada, the Governor General\" for notes [20]."
+  },
+  {
+    "question": "Who was Sir William Logan?",
+    "alternatives": [
+      "The first Prime Minister of Canada",
+      "A founder of the women's suffrage movement",
+      "A world-famous geologist who founded and directed the Geological Survey of Canada",
+      "A commander in the First World War"
+    ],
+    "correct_answer": "c",
+    "chapter": "Canada's Regions",
+    "explanation": "The source states he was \"a world-famous geologist... Logan founded and directed the Geological Survey of Canada from 1842 to 1869 and is considered one of Canada’s greatest scientists\" [21, 22]."
+  },
+  {
+    "question": "What is the highest honour available to Canadians?",
+    "alternatives": [
+      "The Order of Canada",
+      "The Victoria Cross (V.C.)",
+      "The Sovereign's Medal for Volunteers",
+      "The Canadian Forces Decoration"
+    ],
+    "correct_answer": "b",
+    "chapter": "Canadian Symbols",
+    "explanation": "The source states, \"The Victoria Cross (V.C.) is the highest honour available to Canadians\" [23, 24]."
+  },
+  {
+    "question": "When was the Magna Carta signed in England?",
+    "alternatives": [
+      "1066",
+      "1215",
+      "1492",
+      "1776"
+    ],
+    "correct_answer": "b",
+    "chapter": "Rights and Responsibilities of Citizenship",
+    "explanation": "The source states that a tradition of ordered liberty \"dates back to the signing of Magna Carta in 1215 in England\" [25, 26]."
+  },
+  {
+    "question": "In what year was the Constitution of Canada amended to entrench the Canadian Charter of Rights and Freedoms?",
+    "alternatives": [
+      "1867",
+      "1969",
+      "1982",
+      "1999"
+    ],
+    "correct_answer": "c",
+    "chapter": "Rights and Responsibilities of Citizenship / Modern Canada",
+    "explanation": "The source states, \"The Constitution of Canada was amended in 1982 to entrench the Canadian Charter of Rights and Freedoms\" [25, 27]."
+  },
+  {
+    "question": "In what year was the first European settlement north of Florida established by French explorers?",
+    "alternatives": [
+      "1497",
+      "1604",
+      "1608",
+      "1758"
+    ],
+    "correct_answer": "b",
+    "chapter": "Canada's History",
+    "explanation": "The source states, \"In 1604, the first European settlement north of Florida was established by French explorers Pierre de Monts and Samuel de Champlain\" [28, 29]."
+  },
+  {
+    "question": "In what year did Samuel de Champlain build a fortress at what is now Québec City?",
+    "alternatives": [
+      "1604",
+      "1608",
+      "1670",
+      "1759"
+    ],
+    "correct_answer": "b",
+    "chapter": "Canada's History",
+    "explanation": "The source states, \"In 1608 Champlain built a fortress at what is now Québec City.\" [28, 29]."
+  },
+  {
+    "question": "In what year did the British Parliament pass the British North America Act?",
+    "alternatives": [
+      "1791",
+      "1837",
+      "1867",
+      "1885"
+    ],
+    "correct_answer": "c",
+    "chapter": "Canada's History / How Canadians Govern Themselves",
+    "explanation": "The source states, \"The British Parliament passed the British North America Act in 1867.\" [30]."
+  },
+  {
+    "question": "On what date was the Dominion of Canada officially born?",
+    "alternatives": [
+      "May 24, 1837",
+      "July 1, 1867",
+      "April 9, 1917",
+      "July 1, 1982"
+    ],
+    "correct_answer": "b",
+    "chapter": "Canada's History",
+    "explanation": "The source states, \"The Dominion of Canada was officially born on July 1, 1867.\" [30, 31]."
+  },
+  {
+    "question": "Until what year was July 1st celebrated as \"Dominion Day\"?",
+    "alternatives": [
+      "1867",
+      "1940",
+      "1982",
+      "1999"
+    ],
+    "correct_answer": "c",
+    "chapter": "Canada's History",
+    "explanation": "The source states, \"Until 1982, July 1 was celebrated as “Dominion Day” to mark the anniversary of Confederation.\" [30]."
+  },
+  {
+    "question": "In what year was the Canadian Pacific Railway completed?",
+    "alternatives": [
+      "1867",
+      "1885",
+      "1905",
+      "1949"
+    ],
+    "correct_answer": "b",
+    "chapter": "Canada's History",
+    "explanation": "The source states, \"In 1885, the Canadian Pacific Railway (CPR) was completed\" [32]."
+  },
+  {
+    "question": "In what year did the Government of Canada apologize for the Chinese Head Tax?",
+    "alternatives": [
+      "1948",
+      "1988",
+      "2006",
+      "2008"
+    ],
+    "correct_answer": "c",
+    "chapter": "Canada's History",
+    "explanation": "The source states, \"The Government of Canada apologized in 2006 for this discriminatory policy [the Head Tax].\" [32]."
+  },
+  {
+    "question": "In what year did Parliament pass the Official Languages Act?",
+    "alternatives": [
+      "1867",
+      "1969",
+      "1982",
+      "1999"
+    ],
+    "correct_answer": "b",
+    "chapter": "Modern Canada / Canadian Symbols",
+    "explanation": "The source states, \"Parliament passed the Official Languages Act in 1969.\" [23, 33-35]."
+  },
+  {
+    "question": "In what year was O Canada proclaimed as the national anthem?",
+    "alternatives": [
+      "1880",
+      "1965",
+      "1980",
+      "2000"
+    ],
+    "correct_answer": "c",
+    "chapter": "Canadian Symbols",
+    "explanation": "The source states, \"O Canada was proclaimed as the national anthem in 1980.\" [36]."
+  },
+  {
+    "question": "In what year was Nunavut established?",
+    "alternatives": [
+      "1870",
+      "1967",
+      "1982",
+      "1999"
+    ],
+    "correct_answer": "d",
+    "chapter": "Canada's Regions",
+    "explanation": "The source states, \"Nunavut... was established in 1999 from the eastern part of the Northwest Territories\" [37, 38]."
+  },
+  {
+    "question": "Federal elections must be held on what date every four years, following the most recent general election?",
+    "alternatives": [
+      "The first Monday in May",
+      "The second Tuesday in September",
+      "The third Monday in October",
+      "The last Friday in November"
+    ],
+    "correct_answer": "c",
+    "chapter": "Federal Elections",
+    "explanation": "The source states, \"Under legislation passed by Parliament, federal elections must be held on the third Monday in October every four years following the most recent general election.\" [39, 40]."
+  },
+  {
+    "question": "In what year and location was the first representative assembly elected?",
+    "alternatives": [
+      "1758 in Halifax, Nova Scotia",
+      "1773 in Charlottetown, Prince Edward Island",
+      "1785 in Fredericton, New Brunswick",
+      "1791 in Quebec City, Quebec"
+    ],
+    "correct_answer": "a",
+    "chapter": "Canada's History",
+    "explanation": "The source states, \"The first representative assembly was elected in Halifax, Nova Scotia, in 1758.\" [41, 42]."
+  },
+  {
+    "question": "In what year did Manitoba become the first province to grant voting rights to women?",
+    "alternatives": [
+      "1905",
+      "1916",
+      "1918",
+      "1948"
+    ],
+    "correct_answer": "b",
+    "chapter": "Canada's History",
+    "explanation": "The source states, \"In 1916, Manitoba became the first province to grant voting rights to women.\" [11, 43]."
   }
 ]
