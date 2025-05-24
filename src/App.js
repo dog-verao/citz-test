@@ -94,7 +94,7 @@ function App() {
   // Start screen
   if (screen === 'start') {
     return (
-      <Stack sx={{ background: palette.background }} spacing={2}>
+      <Stack spacing={2}>
         <Header />
         <StartScreen
           onSelectQuestions={num => {
@@ -108,10 +108,9 @@ function App() {
     );
   }
 
-  // Quiz screen
   if (screen === 'quiz') {
     return (
-      <Stack sx={{ background: palette.background }} spacing={2}>
+      <Stack spacing={2}>
         <Header />
         <Quiz
           questions={quizQuestions}
@@ -125,10 +124,9 @@ function App() {
     );
   }
 
-  // Result screen
   if (screen === 'result') {
     return (
-      <Stack sx={{ background: palette.background }}>
+      <Stack>
         <Header />
         <QuizResult
           score={lastResult.score}
