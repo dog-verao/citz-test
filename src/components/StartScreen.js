@@ -23,10 +23,12 @@ const options = [10, 20, 40, 100];
 
 export default function StartScreen({ onSelectQuestions }) {
   return (
-    <Box sx={{ background: palette.background, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-      <Paper elevation={3} sx={{ p: 5, borderRadius: 4, bgcolor: palette.card, boxShadow: `0 4px 24px ${palette.shadow}` }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} mt={3}>
+      <Paper elevation={3} sx={{ p: 5, borderRadius: 4, boxShadow: `0 4px 24px ${palette.shadow}` }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
-          <Box sx={{ fontSize: 60, mb: 1 }}>🍁</Box>
+          <Box sx={{ fontSize: 60, mb: 1 }}>
+            <img src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" style={{ width: '80px', height: '80px' }} />
+          </Box>
           <Typography variant="h4" sx={{ color: palette.primary, fontWeight: 800, mb: 1 }} textAlign="center">Canadian Citizenship Quiz</Typography>
           <Typography variant="subtitle1" sx={{ color: palette.textSecondary, mb: 3 }}>Test your knowledge and prepare for the citizenship test</Typography>
           <Typography variant="h6" sx={{ color: palette.text, fontWeight: 700, mb: 2 }}>How many questions would you like to practice?</Typography>

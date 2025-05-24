@@ -3,7 +3,7 @@ import { questions as allQuestions } from './questions';
 import StartScreen from './components/StartScreen';
 import Quiz from './components/Quiz';
 import QuizResult from './components/QuizResult';
-import { Box, Typography, Avatar } from '@mui/material';
+import { Box, Typography, Avatar, Stack } from '@mui/material';
 
 const palette = {
   primary: '#dc2626',
@@ -26,11 +26,19 @@ function shuffle(array) {
   return arr;
 }
 
+export const Footer = () => (
+  <Box sx={{ width: '100%', bgcolor: 'white', py: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'fixed', bottom: 0 }}>
+    <Typography variant="body2" sx={{ color: palette.textSecondary }}>
+      Created with ❤️ by <a href="mailto:contatoaguiarti@gmail.com">Tiago Aguiar</a>
+    </Typography>
+  </Box>
+);
+
 function App() {
-  const [screen, setScreen] = useState('start'); // start | quiz | result
+  const [screen, setScreen] = useState('start');
   const [quizQuestions, setQuizQuestions] = useState([]);
-  const [lastResult, setLastResult] = useState(null); // {score, wrongQuestions}
-  const [wrongOnly, setWrongOnly] = useState(false);
+  const [lastResult, setLastResult] = useState(null);
+  const [, setWrongOnly] = useState(false);
 
   // Header
   const Header = () => (
@@ -44,7 +52,6 @@ function App() {
         alignItems: 'center',
         justifyContent: 'space-between',
         borderBottom: `2px solid ${palette.primary}`,
-        mb: 3,
         overflowX: 'hidden',
         boxSizing: 'border-box',
         maxWidth: '100vw',
@@ -66,7 +73,7 @@ function App() {
           alt="Canada Leaf"
         >
           <Box sx={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
-            🍁
+            <img src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" style={{ width: '40px', height: '40px' }} />
           </Box>
         </Avatar>
         <Typography
@@ -87,7 +94,7 @@ function App() {
   // Start screen
   if (screen === 'start') {
     return (
-      <>
+      <Stack sx={{ background: palette.background }} spacing={2}>
         <Header />
         <StartScreen
           onSelectQuestions={num => {
@@ -96,14 +103,15 @@ function App() {
             setWrongOnly(false);
           }}
         />
-      </>
+        <Footer />
+      </Stack>
     );
   }
 
   // Quiz screen
   if (screen === 'quiz') {
     return (
-      <>
+      <Stack sx={{ background: palette.background }} spacing={2}>
         <Header />
         <Quiz
           questions={quizQuestions}
@@ -112,14 +120,15 @@ function App() {
             setScreen('result');
           }}
         />
-      </>
+        <Footer />
+      </Stack>
     );
   }
 
   // Result screen
   if (screen === 'result') {
     return (
-      <>
+      <Stack sx={{ background: palette.background }}>
         <Header />
         <QuizResult
           score={lastResult.score}
@@ -138,7 +147,8 @@ function App() {
             setWrongOnly(false);
           }}
         />
-      </>
+        <Footer />
+      </Stack>
     );
   }
 
